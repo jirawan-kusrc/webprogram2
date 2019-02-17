@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { User } from './user';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,12 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'form101';
+  //title = 'form101';
+  user:User;
+  onChange(user:User){
+    this.user =user;
+    
+    }
+
 }
+

@@ -1,18 +1,30 @@
 <form [formGroup] = "formGroup" (ngSubmit)="onSubmit(formGroup)"> 
  <div>
    <input type = "text" formControlName = "firstName" placeholder = "first name" >
+   <label style="color:crimson"
+   *ngIf="formGroup.get('firstName').invalid && 
+                  formGroup.get('firstName').errors['required']">Min of firstname is 3</label>
  </div>
 <br>
  <div>
     <input type = "text" formControlName = "lastName" placeholder = "last name" >
+    <label style="color:crimson"
+   *ngIf="formGroup.get('lastName').invalid && 
+                  formGroup.get('lastName').errors['required']">Min of lastname is 3</label>
   </div>
   <br>
   <div>
       <input type = "text" formControlName = "emailName" placeholder = "email name" >
+      <label style="color:crimson"
+      *ngIf="formGroup.get('emailName').invalid && 
+                     formGroup.get('emailName').errors['emailName']">No @ in email</label>
     </div>
     <br>
     <div>
-        <input type = "number" formControlName = "ageName" placeholder = "30" >
+        <input type = "number" min = "0"  max ="99" formControlName = "ageName" placeholder = "30" >
+        <label style="color:crimson"
+        *ngIf="formGroup.get('ageName').invalid && formGroup.get('ageName').touched && 
+                       (formGroup.get('ageName').errors['min']||formGroup.get('ageName').errors['max'])">Between 1-99</label>
       </div>
     <br>
   <div>
